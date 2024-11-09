@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Statistics Cards</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .stat-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #343a40;
+        }
+
+        .stat-card p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        .stat-card .icon {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        .Analsys{
+            position: relative;
+            width:1000px;
+            height:1000px;
+        }
+        .download{
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- <div class="row justify-content-center"> -->
+        <h1 class="text-center">AlgoTrade</h1>
+        <div class="row justify-content-center">
+       
+
+            <div class="col-md-5">
+                <div class="stat-card">
+                    <div class="icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>{{ portfolio_size }}</h3>
+                    <p>Portfolio Amount</p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="stat-card">
+                    <div class="icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>{{ algo }}</h3>
+                    <p>Algo Used </p>
+                </div>
+            </div>
+           
+        </div>
+        
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            {{ table|safe }}
+        <a href="/download" class="btn btn-primary justify-content-center">Download Excel</a>
+        </div>
+            <h2 style="align-items: center;">Analsys</h2>
+            <img  class="Analsys" src=" {{ url_for('static', filename=img) }} " alt="Plot">
+        </div>
+    </div>
+
+    <!-- Include Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
